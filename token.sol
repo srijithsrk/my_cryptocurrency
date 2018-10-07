@@ -1,15 +1,18 @@
 //my token
+
 pragma solidity ^0.4.0;
 
 contract DragonStone
 {
 address public creator;
+uint constant public PRICE = 5000000000000000000;   //5 ether in wei
+// im planning to sell my token i.e; my cryptocurrency for 5 ether
 mapping(address => uint) public balance;   //mapping acts as a key value pair like that of an array
 function.DragonStone()
 {
 creator = msg.sender;   //messages are sent by the creator of the smart contract only
 }
-function createCoin(address _reciever, uint amount)
+function createCoin(address _reciever, uint amount) payable
 {                                   //only the creator of the contract has right to create coins
 if(msg.sender != creator ) throw;
 balance[_reciever] += amount;
